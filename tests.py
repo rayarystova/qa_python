@@ -85,3 +85,15 @@ class TestBooksCollector:
         collector.set_book_genre('Молчание ягнят', 'Ужасы')
         assert 'Молчание ягнят' not in collector.get_books_for_children()
 
+    
+    def test_add_book_in_favorites(self):
+        collector = BooksCollector()
+        collector.add_new_book('Новая книга')
+        collector.add_book_in_favorites('Новая книга')
+        assert 'Новая книга' in collector.get_list_of_favorites_books()
+
+    
+    def test_get_books_genre(self):
+        collector = BooksCollector()
+        assert collector.get_books_genre() == {}
+
